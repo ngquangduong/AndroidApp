@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/login/createAccount.dart';
-import 'package:namer_app/login/newPassword.dart';
+import 'login/createAccount.dart';
+import 'login/newPassword.dart';
 import 'login.dart';
 import 'login/login.dart';
 import 'login/createAccount.dart';
