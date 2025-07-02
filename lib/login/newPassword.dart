@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'components/input.dart';
 
-class NewPassword extends StatelessWidget {
+class NewPassword extends StatefulWidget {
+  @override
+  State<NewPassword> createState() => _NewPasswordState();
+}
+
+class _NewPasswordState extends State<NewPassword> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

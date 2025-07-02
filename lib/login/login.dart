@@ -6,7 +6,16 @@ import 'components/input.dart';
 import 'components/socialLogin.dart';
 import 'createAccount.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,11 +63,13 @@ class Login extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.only(left: 30, right: 30, top: 10),
                 child: Form(
+                  key: _formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 20),
                       Input(
+                        controller: _usernameController,
                         label: 'Tên đăng nhập',
                         hintText: 'Nhập tên đăng nhập',
                         icon: Icons.person,
@@ -71,6 +82,7 @@ class Login extends StatelessWidget {
                       ),
                       SizedBox(height: 15),
                       Input(
+                        controller: _passwordController,
                         label: 'Mật khẩu',
                         hintText: 'Nhập mật khẩu',
                         icon: Icons.lock,
@@ -119,7 +131,6 @@ class Login extends StatelessWidget {
                               textStyle: TextStyle(fontSize: 16),
                             ),
                             onPressed: () {
-                              // Xử lý logic đăng nhập ở đây
                             },
                             child: Text(
                               'Đăng nhập',
@@ -148,7 +159,6 @@ class Login extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(builder: (context) => CreateAccount()),
                                   );
-                                  print('Đã nhấn Đăng ký');
                                 },
                             ),
                           ],
